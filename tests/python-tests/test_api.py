@@ -24,10 +24,19 @@ TOML_0_4_SPECIFIC = [
     'key-single-open-bracket',
 ]
 
+UNRELEASED_FEATURES_SPECIFIC = [
+    'inline-table-linebreak',
+    'multi-line-inline-table',
+    'datetime-malformed-no-secs',
+    'string-byte-escapes',
+]
+
 _toml_dir = pathlib.Path(__file__).parent.parent / "toml-test" / "tests"
 _marks = {
-    s: (pytest.mark.skip(reason="TOML spec v0.4 specific test"),)
-    for s in TOML_0_4_SPECIFIC
+    **{s: (pytest.mark.skip(reason="TOML spec v0.4 specific test"),)
+       for s in TOML_0_4_SPECIFIC},
+    **{s: (pytest.mark.skip(reason="Now valid due to TOML_ENABLE_UNRELEASED_FEATURES"),)
+       for s in UNRELEASED_FEATURES_SPECIFIC}
 }
 _valid_marks = {
     s: (pytest.mark.skip(reason="Skipping for these tests for now"))

@@ -16,8 +16,10 @@ class PyBind11Include:
 extra_compile_args = []
 if platform.system() == "Windows":
     extra_compile_args.append('/std:c++17')
+    extra_compile_args.append('/DTOML_ENABLE_UNRELEASED_FEATURES=1')
 else:
     extra_compile_args.append('-std=c++17')
+    extra_compile_args.append('-DTOML_ENABLE_UNRELEASED_FEATURES=1')
 
 
 setup(
