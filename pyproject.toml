@@ -1,0 +1,50 @@
+[build-system]
+requires = ["setuptools>=59.6.0,<72.2.0", "pybind11~=2.10"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "pytomlpp"
+version = "1.0.14"
+description = "A python wrapper for toml++"
+authors = [
+    {name = "Bob Fang", email = "bob.fang.london@gmail.com"},
+]
+requires-python = ">=3.7"
+readme = "README.md"
+license = {file = "LICENSE"}
+keywords = [
+    "toml",
+    "parser",
+    "serilization",
+    "deserialization",
+    "serdes",
+]
+classifiers = [
+    "Development Status :: 5 - Production/Stable",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Natural Language :: English",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.7",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Topic :: Utilities",
+]
+
+[project.urls]
+Source = "https://github.com/bobfang1992/pytomlpp"
+Tracker = "https://github.com/bobfang1992/pytomlpp/issues"
+
+[tool.setuptools]
+zip-safe = false
+package-dir = {"" = "src"}
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+"*" = ["*.pyi", "py.typed"]
